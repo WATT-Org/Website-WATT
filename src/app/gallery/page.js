@@ -1,58 +1,77 @@
 "use client";
-import { useState } from "react";
+import Image from "next/image";
+import Slider from "react-slick";
 
 export default function GalleryPage() {
-  const images = [
-    { src: "/logo.jpeg", title: "Logo Image" },
-    { src: "/robot.png", title: "Robot Image" },
-    { src: "/logo.jpeg", title: "Logo Image 2" },
-    { src: "/robot.png", title: "Robot Image 2" },
-    { src: "/logo.jpeg", title: "Logo Image 3" },
-    { src: "/robot.png", title: "Robot Image 3" },
+  const events = [
+    {
+      title: "Event 1: Green Energy Summit",
+      description: "A conference focused on renewable energy and sustainability.",
+      images: ["/robot.png", "/robot.png", "/robot.png"],
+    },
+    {
+      title: "Event 2: Tech Expo",
+      description: "Showcasing innovative clean-tech solutions and smart devices.",
+      images: ["/robot.png", "/robot.png", "/robot.png", "/robot.png"],
+    },
+    {
+      title: "Event 3: Community Workshop",
+      description: "Workshops and training sessions with the local community.",
+      images: ["/robot.png", "/robot.png"],
+    },
   ];
 
-  const [selectedImage, setSelectedImage] = useState(null);
+  // Carousel settings
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 768, // mobile
+        settings: { slidesToShow: 1 },
+      },
+    ],
+  };
 
   return (
-    <div className="p-10 bg-gray-950 min-h-screen">
-      <h1 className="text-5xl font-extrabold text-center mb-12 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
-        📸 Gallery
-      </h1>
+    <div className="min-h-screen bg-gray-950 text-gray-100 py-16 px-6">
+      <div className="max-w-6xl mx-auto space-y-20">
+        <h1 className="text-4xl font-bold text-center text-blue-400 mb-12">
+          Event Gallery
+        </h1>
 
-      {/* Image Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className="relative overflow-hidden rounded-xl shadow-lg cursor-pointer transform transition duration-300 hover:scale-105"
-            onClick={() => setSelectedImage(image.src)}
-          >
-            <img
-              src={image.src}
-              alt={image.title}
-              className="h-64 w-full object-cover"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition flex items-center justify-center text-white text-lg font-semibold">
-              {image.title}
+        {events.map((event, index) => (
+          <div key={index} className="space-y-6">
+            {/* Event Heading + Info */}
+            <div>
+              <h2 className="text-2xl font-semibold text-white">
+                {event.title}
+              </h2>
+              <p className="text-gray-400 mt-2">{event.description}</p>
             </div>
+
+            {/* Carousel */}
+            <Slider {...settings}>
+              {event.images.map((img, i) => (
+                <div key={i} className="px-2">
+                  <div className="w-full h-64 relative rounded-lg overflow-hidden shadow-lg">
+                    <Image
+                      src={img}
+                      alt={`${event.title} - Image ${i + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              ))}
+            </Slider>
           </div>
         ))}
       </div>
-
-      {/* Lightbox / Modal */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
-          onClick={() => setSelectedImage(null)}
-        >
-          <img
-            src={selectedImage}
-            alt="Selected"
-            className="max-h-[90vh] max-w-[90vw] rounded-xl shadow-2xl"
-          />
-        </div>
-      )}
     </div>
   );
 }
