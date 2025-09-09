@@ -73,11 +73,12 @@ export default function Hero() {
             <div className="absolute inset-0 flex items-center px-6 md:px-20">
               <div className="text-white max-w-2xl">
                 <h2 className="text-5xl md:text-6xl font-bold mb-6">
-                  Innovate
+                 WELCOME TO WORLD OF ROBOTICS
+               
+
                 </h2>
                 <p className="text-lg md:text-xl text-gray-200 mb-8">
-                  We are a startup focused on hardware projects like robotics,
-                  3D printing, and software development.
+                 WATT (World of Automation Technology & Trainings) is a robotics based company which uses emerging technologies like IOT, AI, Data Science, etc. to solve real world problems and automate the work that humans have to do repeatedly.
                 </p>
                 <Link
                   href="/projects"

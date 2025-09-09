@@ -1,0 +1,26 @@
+export const blogs = [
+  {
+    id: 1,
+    title: "Building a Modular Robot Arm",
+    description:
+      "Learn how we designed and built a modular robot arm, focusing on flexibility and ease of use for a variety of applications.",
+    image: "/robot-arm.jpg",
+    link: "/blogs/first-blog",
+  },
+  {
+    id: 2,
+    title: "3D Printing with Recycled Materials",
+    description:
+      "Explore our experiments with 3D printing using recycled materials, reducing waste and costs.",
+    image: "/3d-printing.jpg",
+    link: "/blogs/second-blog",
+  },
+  {
+    id: 3,
+    title: "Software Development for Robotics",
+    description:
+      "Discover the software development process behind our robotics projects, including control systems and AI.",
+    image: "/robotics-software.jpg",
+    link: "/blogs/third-blog",
+  },
+];
