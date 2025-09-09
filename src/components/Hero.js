@@ -46,10 +46,10 @@ export default function Hero() {
 
   const images = [
     "/robot.png",
-    "/robot2.png",
-    "/robot3.png",
-    "/robot4.png",
-    "/robot5.png",
+    "/robot.png",
+    "/robot.png",
+    "/robot.png",
+    "/robot.png",
   ];
 
   return (
