@@ -8,8 +8,9 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (  
-    <nav className="shadow-lg"> {/* 🔹 Transparent nav */}
+    <nav className="shadow-lg">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between bg-gray-900 text-white rounded-lg">
+        
         {/* Logo */}
         <div className="flex items-center space-x-6">
           <Image
@@ -17,7 +18,6 @@ export default function Navbar() {
             alt="Watt Incorporate Logo"
             width={40}
             height={40}
-
             className="object-contain rounded-full"
           />
           <span className="font-bold text-2xl tracking-wide">
