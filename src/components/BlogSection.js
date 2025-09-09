@@ -1,55 +1,77 @@
+// src/app/components/BlogSection.js
 import Image from "next/image";
+import Link from "next/link";
 
+// Make sure the id matches the folder name under src/app/blog/
 const blogs = [
   {
-    id: 1,
-    category: "Tech Insights",
-    title: "The Future of Robotics",
-    desc: "Explore the latest trends and advancements in robotics technology.",
-    image: "/images/blog1.jpg",
+    id: "first-blog", 
+    title: "Building a Modular Robot Arm",
+    description:
+      "Learn how we designed and built a modular robot arm, focusing on flexibility and ease of use for a variety of applications...",
+    image: "/robot-arm.jpg",
   },
   {
-    id: 2,
-    category: "Innovation Spotlight",
-    title: "3D Printing Revolution",
-    desc: "Discover how 3D printing is transforming manufacturing and design.",
-    image: "/images/blog2.jpg",
+    id: "second-blog",
+    title: "3D Printing with Recycled Materials",
+    description:
+      "Explore our experiments with 3D printing using recycled materials, reducing waste and costs...",
+    image: "/3d-printing.jpg",
   },
   {
-    id: 3,
-    category: "Software Trends",
-    title: "Data Analysis in the Digital Age",
-    desc: "Learn about the importance of data analysis in modern software development.",
-    image: "/images/blog3.jpg",
+    id: "third-blog",
+    title: "Software Development for Robotics",
+    description:
+      "Discover the software development process behind our robotics projects, including control systems and AI...",
+    image: "/robotics-software.jpg",
   },
 ];
 
 export default function BlogSection() {
   return (
-    <section className="space-y-6">
-      <h2 className="text-xl font-bold">From The Blog</h2>
-      <div className="space-y-6">
-        {blogs.map((blog) => (
-          <div
-            key={blog.id}
-            className="flex flex-col md:flex-row items-center bg-gray-800 p-6 rounded-lg gap-6"
-          >
-            <div className="flex-1 space-y-2">
-              <p className="text-sm text-blue-400 font-semibold">
-                {blog.category}
-              </p>
-              <h3 className="text-xl font-bold">{blog.title}</h3>
-              <p className="text-gray-300">{blog.desc}</p>
+    <section className="bg-gray-950 text-white py-16">
+      <div className="max-w-6xl mx-auto px-6">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+          From the Blog
+        </h2>
+
+        <div className="space-y-16">
+          {blogs.map((blog, index) => (
+            <div key={blog.id}>
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                {/* Image Left or Right (alternate) */}
+                <div
+                  className={`w-full h-64 relative rounded-lg overflow-hidden shadow-lg ${
+                    index % 2 !== 0 ? "order-2 md:order-2" : ""
+                  }`}
+                >
+                  <Image
+                    src={blog.image}
+                    alt={blog.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+
+                {/* Text */}
+                <div
+                  className={`${index % 2 !== 0 ? "order-1 md:order-1" : ""}`}
+                >
+                  <h3 className="text-xl font-semibold mb-3">{blog.title}</h3>
+                  <p className="text-gray-400 mb-4">{blog.description}</p>
+                  {/* Correct link to static page */}
+                  <Link
+                    href={`/blogs/${blog.id}/`}
+                    className="text-teal-400 font-medium hover:underline"
+                  >
+                    Read more →
+                  </Link>
+                </div>
+              </div>
+              <div className="border-t border-gray-800 mt-10"></div>
             </div>
-            <Image
-              src={blog.image}
-              alt={blog.title}
-              width={200}
-              height={150}
-              className="rounded-md object-cover"
-            />
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
