@@ -40,7 +40,7 @@ export default function GalleryPage() {
   return (
     <div className="min-h-screen bg-gray-950 text-gray-100 py-16 px-6">
       <div className="max-w-6xl mx-auto space-y-20">
-        <h1 className="text-4xl font-bold text-center text-blue-400 mb-12">
+        <h1 className="text-4xl font-bold text-center text-white mb-12">
           Event Gallery
         </h1>
 
