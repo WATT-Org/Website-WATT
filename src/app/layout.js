@@ -3,8 +3,11 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 export const metadata = {
-  title: "My Portfolio",
-  description: "A portfolio website built with Next.js",
+  title: "WATT Incorporate",
+  description: "WATT Incorporate - Empowering Your Business with Innovative Solutions",
+  icons: {
+    icon: "/logo.jpeg", // path relative to /public
+  },
 };
 
 export default function RootLayout({ children }) {

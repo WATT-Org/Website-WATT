@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Slider from "react-slick";
-import { ChevronLeft, ChevronRight } from "lucide-react"; 
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Custom Prev Arrow
 function PrevArrow({ onClick }) {
@@ -29,28 +29,21 @@ function NextArrow({ onClick }) {
 }
 
 export default function Hero() {
-  // Slider settings
   const settings = {
-    dots: true, //  slide indicators
+    dots: true,
     infinite: true,
     speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true, //  auto slide
-    autoplaySpeed: 4000, //  4 sec per slide
+    autoplay: true,
+    autoplaySpeed: 4000,
     arrows: true,
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
     pauseOnHover: false,
   };
 
-  const images = [
-    "/robot.png",
-    "/robot.png",
-    "/robot.png",
-    "/robot.png",
-    "/robot.png",
-  ];
+  const images = ["/robot.png", "/robot.png", "/robot.png", "/robot.png", "/robot.png"];
 
   return (
     <section className="relative w-full h-screen">
@@ -67,26 +60,24 @@ export default function Hero() {
             />
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/100 via-black/ to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
 
-            {/* Content */}
-            <div className="absolute inset-0 flex items-center px-6 md:px-20">
-              <div className="text-white max-w-2xl">
-                <h2 className="text-5xl md:text-6xl font-bold mb-6">
-                 WELCOME TO WORLD OF ROBOTICS
-               
-
-                </h2>
-                <p className="text-lg md:text-xl text-gray-200 mb-8">
-                 WATT (World of Automation Technology & Trainings) is a robotics based company which uses emerging technologies like IOT, AI, Data Science, etc. to solve real world problems and automate the work that humans have to do repeatedly.
-                </p>
-                <Link
-                  href="/projects"
-                  className="px-8 py-4 bg-blue-600 text-white rounded-lg text-lg font-medium hover:bg-blue-700 transition"
-                >
-                  Explore Projects
-                </Link>
-              </div>
+            {/* Centered Content */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+              <h6 className="text-4xl md:text-6xl font-bold mb-6">
+                Fast and efficient robotics service
+              </h6>
+              <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl">
+                WATT (World of Automation Technology & Trainings) is a robotics-based company
+                using emerging technologies like IoT, AI, and Data Science to solve real-world
+                problems and automate repetitive tasks.
+              </p>
+              <Link
+                href="/projects"
+                className="px-8 py-4 bg-blue-600 text-white rounded-lg text-lg font-medium hover:bg-blue-700 transition"
+              >
+                Explore Projects
+              </Link>
             </div>
           </div>
         ))}

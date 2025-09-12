@@ -40,31 +40,35 @@ export default function AboutPage() {
 
         {/* Projects Timeline */}
         <h2 className="text-3xl font-bold text-center mb-10">Our Journey & Key Projects</h2>
-        <div className="relative border-l-2 border-blue-500 pl-6 space-y-10">
+        <div className="relative border-l-2 border-white pl-6 space-y-10">
           {[
             {
-              title: "Automatic Curtains",
-              desc: "Smart home solution for automated curtain control, enhancing convenience and energy efficiency.",
-            },
-            {
-              title: "Room Automation",
-              desc: "Integrated system for automating room environments, from lighting to climate control.",
-            },
-            {
-              title: "Hospital Automation",
-              desc: "Robotics solutions for automating hospital operations, from logistics to patient care.",
-            },
-            {
-              title: "Drones",
-              desc: "Advanced drone technology for various applications, including surveillance and delivery.",
-            },
-            {
-              title: "Alarms",
-              desc: "Intelligent alarm systems for enhanced security, integrating AI for smarter threat detection.",
-            },
+      title: "Smart Attendance System",
+      desc: "Automated attendance tracking for schools and offices.",
+    },
+    {
+      title: "Smart Wheel Chair & Attachments",
+      desc: "Enhancing mobility with smart, AI-powered solutions.",
+    },
+    {
+      title: "Room Automation",
+      desc: "Intelligent control of lighting, climate, and appliances.",
+    },
+    {
+      title: "Robotics & Arduino Kits",
+      desc: "Educational and functional kits for robotics projects.",
+    },
+    {
+      title: "3D Printing & Laser-Cut Models",
+      desc: "Custom prototypes, robotics parts, and gift items.",
+    },
+    {
+      title: "Pen Plotters & Signage Boards",
+      desc: "Precision plotting and custom display solutions.",
+    },
           ].map((project, index) => (
             <div key={index} className="relative">
-              <div className="absolute -left-4 top-2 w-3 h-3 bg-blue-500 rounded-full"></div>
+              <div className="absolute -left-4 top-2 w-3 h-3 bg-white rounded-full"></div>
               <div className="bg-gray-900 p-6 rounded-lg shadow-md">
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                 <p className="text-gray-400">{project.desc}</p>

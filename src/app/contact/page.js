@@ -24,7 +24,7 @@ export default function ContactPage() {
                 <Phone size={22} className="text-cyan-400" /> +91 83170-67738
               </p>
               <p className="flex items-center gap-3">
-                <Mail size={22} className="text-cyan-400" /> enquiry@thewatt.in
+                <Mail size={22} className="text-cyan-400" /> wattincorporate@gmail.com
               </p>
             </div>
 

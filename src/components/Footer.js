@@ -23,7 +23,7 @@ export default function Footer() {
                 className="rounded-full shadow-md"
               />
               <span className="text-2xl font-bold tracking-wide font-sans text-white">
-                Watt Incorporate
+                WATT Incorporate
               </span>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed font-light">
@@ -97,7 +97,7 @@ export default function Footer() {
                   href="mailto:info@wattincorporate.com"
                   className="hover:text-blue-400 font-light"
                 >
-                  info@wattincorporate.com
+                  wattincorporate@gmail.com
                 </a>
               </li>
             </ul>

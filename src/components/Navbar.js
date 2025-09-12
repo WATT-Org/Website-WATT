@@ -21,7 +21,7 @@ export default function Navbar() {
             className="object-contain rounded-full"
           />
           <span className="font-bold text-2xl tracking-wide">
-            Watt Incorporate
+            WATT Incorporate
           </span>
         </div>
 
