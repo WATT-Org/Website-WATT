@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function RobotArmPage() {
   const otherBlogs = [
-    { id: "3d-printing", title: "3D Printing with Recycled Materials" },
-    { id: "robotics-software", title: "Software Development for Robotics" },
+    { id: "second-blog", title: "3D Printing with Recycled Materials" },
+    { id: "third-blog", title: "Software Development for Robotics" },
   ];
 
   return (
@@ -14,17 +14,18 @@ export default function RobotArmPage() {
       </p>
 
       <h2 className="text-2xl font-semibold mb-4">Other Blogs</h2>
-      <div className="space-y-3">
-        {otherBlogs.map(blog => (
-          <Link
-            key={blog.id}
-            href={`/blog/${blog.id}`}
-            className="text-teal-400 hover:underline"
-          >
-            {blog.title} →
-          </Link>
+      <ul className="list-disc list-inside space-y-2">
+        {otherBlogs.map((blog) => (
+          <li key={blog.id}>
+            <Link
+              href={`/blogs/${blog.id}`}
+              className="text-teal-400 hover:underline"
+            >
+              {blog.title} →
+            </Link>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }

@@ -5,7 +5,7 @@ export const blogs = [
     description:
       "Learn how we designed and built a modular robot arm, focusing on flexibility and ease of use for a variety of applications.",
     image: "/robot-arm.jpg",
-    link: "/blogs/first-blog",
+    slug: "first-blog",   // ✅ slug add kiya
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const blogs = [
     description:
       "Explore our experiments with 3D printing using recycled materials, reducing waste and costs.",
     image: "/3d-printing.jpg",
-    link: "/blogs/second-blog",
+    slug: "second-blog",
   },
   {
     id: 3,
@@ -21,6 +21,6 @@ export const blogs = [
     description:
       "Discover the software development process behind our robotics projects, including control systems and AI.",
     image: "/robotics-software.jpg",
-    link: "/blogs/third-blog",
+    slug: "third-blog",
   },
 ];

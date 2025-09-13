@@ -130,7 +130,7 @@ export default function Home() {
               </h3>
               <p className="text-gray-400 mb-4 text-sm">{blog.description}</p>
               <Link
-                href={`/blogs/${blog.id}`}
+                href={`/blogs/${blog.slug}`}   //  updated to slug
                 className="text-teal-400 hover:text-teal-500 font-medium transition"
               >
                 Read More →
