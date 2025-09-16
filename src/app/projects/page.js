@@ -1,52 +1,99 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
+const projects = [
+  {
+    id: 1,
+    title: "Autonomous Drone Navigation",
+    category: "AI",
+    status: "In Progress",
+    images: [
+      "/projects/drone1.jpg",
+      "/projects/drone2.jpg",
+      "/projects/drone3.jpg",
+    ],
+    description: `An autonomous drone capable of navigating through complex environments using AI and real-time obstacle detection. Useful in rescue operations, agriculture, and surveillance. 
+    This project is designed to showcase advanced AI techniques for safe navigation in dynamic environments. 
+    It combines computer vision, deep learning, and real-time path planning.`,
+  },
+  {
+    id: 2,
+    title: "3D Printed Prosthetic Hand",
+    category: "Hardware",
+    status: "Completed",
+    images: [
+      "/projects/prosthetic1.jpg",
+      "/projects/prosthetic2.jpg",
+      "/projects/prosthetic3.jpg",
+      "/projects/prosthetic4.jpg",
+      "/projects/prosthetic5.jpg",
+      "/projects/prosthetic6.jpg",
+    ],
+    description: `A customizable, low-cost prosthetic hand created with 3D printing. 
+    Modular, lightweight, and affordable compared to traditional prosthetics. 
+    The design allows users to customize according to hand size and functionality requirements.`,
+  },
+  {
+    id: 3,
+    title: "Smart Home Automation System",
+    category: "IoT",
+    status: "Featured",
+    images: [
+      "/projects/smarthome1.jpg",
+      "/projects/smarthome2.jpg",
+      "/projects/smarthome3.jpg",
+    ],
+    description: `IoT and AI-powered system to automate lighting, security, and temperature. 
+    Users can control everything via mobile app or voice commands.`,
+  },
+  {
+    id: 4,
+    title: "AI Chatbot for Customer Support",
+    category: "Web Development",
+    status: "In Progress",
+    images: ["/projects/chatbot1.jpg", "/projects/chatbot2.jpg"],
+    description: `A conversational AI chatbot that handles customer queries efficiently and reduces support team workload.`,
+  },
+  {
+    id: 5,
+    title: "Renewable Energy Monitoring System",
+    category: "Electronics",
+    status: "Completed",
+    images: ["/projects/energy1.jpg", "/projects/energy2.jpg"],
+    description: `An IoT-based solution to track solar and wind energy production with real-time data visualization.`,
+  },
+  {
+    id: 6,
+    title: "Robotic Arm for Manufacturing",
+    category: "Hardware",
+    status: "Featured",
+    images: ["/projects/robotarm1.jpg", "/projects/robotarm2.jpg"],
+    description: `A robotic arm prototype for automating repetitive tasks in manufacturing with precision and efficiency.`,
+  },
+];
 
 export default function ProjectsPage() {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [currentImage, setCurrentImage] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [modalProject, setModalProject] = useState(null);
 
-  const categories = ["All", "Web", "Mobile", "AI", "E-Commerce"];
+  const categories = ["All", "AI", "IoT", "Hardware", "Electronics", "Web Development"];
 
-  const projects = [
-    {
-      title: "AI Chatbot",
-      description: "An intelligent chatbot built with Next.js and OpenAI API.",
-      image: "/robot.png",
-      link: "#",
-      category: "AI",
-      tech: ["React", "Next.js", "OpenAI API"],
-      status: "Completed",
-    },
-    {
-      title: "Portfolio Website",
-      description: "A modern personal portfolio to showcase skills and projects.",
-      image: "/logo.jpeg",
-      link: "#",
-      category: "Web",
-      tech: ["React", "Tailwind CSS"],
-      status: "Featured",
-    },
-    {
-      title: "E-Commerce Store",
-      description: "An online store with cart, checkout, and payment integration.",
-      image: "/robot.png",
-      link: "#",
-      category: "E-Commerce",
-      tech: ["React", "Node.js", "Stripe API"],
-      status: "In Progress",
-    },
-    {
-      title: "Blog Platform",
-      description: "A full-stack blog with authentication and admin dashboard.",
-      image: "/logo.jpeg",
-      link: "#",
-      category: "Web",
-      tech: ["Next.js", "MongoDB", "Tailwind CSS"],
-      status: "Completed",
-    },
-  ];
+  const handleNextImage = () => {
+    if (selectedProject) {
+      setCurrentImage((prev) => (prev + 1) % selectedProject.images.length);
+    }
+  };
+
+  const handlePrevImage = () => {
+    if (selectedProject) {
+      setCurrentImage(
+        (prev) => (prev - 1 + selectedProject.images.length) % selectedProject.images.length
+      );
+    }
+  };
 
   const filteredProjects =
     selectedCategory === "All"
@@ -54,121 +101,120 @@ export default function ProjectsPage() {
       : projects.filter((p) => p.category === selectedCategory);
 
   return (
-    <div className="p-10 bg-gray-900 min-h-screen">
-      <h1 className="text-4xl font-extrabold text-center mb-8 text-white">
-        Our Projects That Show Our Expertise On 
-Robotics And Home Automations
-      </h1>
-      <h1 className="text-3xl font-bold text-center mb-8 text-white">
-       Shaping Smart Solutions for Real-World Challenges
-      </h1>
+    <div className="relative min-h-screen bg-gray-900 text-white p-10">
+      <h1 className="text-4xl font-bold text-center mb-6">Projects</h1>
+      <p className="text-center text-gray-400 mb-8">
+        Explore the innovative projects created by our community.
+      </p>
 
       {/* Category Filters */}
-      <div className="flex justify-center mb-8 space-x-4">
+      <div className="flex flex-wrap justify-center gap-4 mb-10">
         {categories.map((cat) => (
           <button
             key={cat}
-            className={`px-4 py-2 rounded-full font-medium transition ${
+            onClick={() => setSelectedCategory(cat)}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition ${
               selectedCategory === cat
                 ? "bg-blue-600 text-white"
-                : "bg-gray-800 text-gray-300 hover:bg-blue-500"
+                : "bg-gray-700 text-gray-300 hover:bg-gray-600"
             }`}
-            onClick={() => setSelectedCategory(cat)}
           >
             {cat}
           </button>
         ))}
       </div>
 
-      {/* Project Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        {filteredProjects.map((project, index) => (
+      {/* Projects Grid */}
+      <div
+        className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 transition ${
+          selectedProject ? "blur-sm" : ""
+        }`}
+      >
+        {filteredProjects.map((project) => (
           <div
-            key={index}
-            className="bg-gray-800 text-white rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer"
-            onClick={() => setModalProject(project)}
+            key={project.id}
+            className="bg-gray-800 rounded-xl shadow-lg p-4 cursor-pointer hover:scale-105 transform transition relative"
+            onClick={() => {
+              setSelectedProject(project);
+              setCurrentImage(0);
+            }}
           >
-            <div className="relative">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="h-48 w-full object-cover"
-              />
-              <span className="absolute top-2 left-2 bg-blue-600 px-3 py-1 rounded-full text-sm font-semibold">
-                {project.status}
-              </span>
-            </div>
-            <div className="p-6">
-              <h2 className="text-2xl font-semibold mb-2">{project.title}</h2>
-              <p className="text-gray-300 mb-4">{project.description}</p>
+            {/* Status Badge */}
+            <span
+              className={`absolute top-3 right-3 text-xs font-semibold px-3 py-1 rounded-full ${
+                project.status === "Completed"
+                  ? "bg-green-600 text-white"
+                  : project.status === "In Progress"
+                  ? "bg-yellow-500 text-black"
+                  : "bg-blue-600 text-white"
+              }`}
+            >
+              {project.status}
+            </span>
 
-              {/* Tech Badges */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="bg-gray-700 px-2 py-1 rounded-full text-sm hover:bg-blue-600 transition"
-                    title={tech}
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-lg text-white font-medium transition"
-              >
-                View Project →
-              </a>
-            </div>
+            <Image
+              src={project.images[0]}
+              alt={project.title}
+              width={400}
+              height={250}
+              className="rounded-lg mb-4"
+            />
+            <h2 className="text-xl font-semibold mb-2">{project.title}</h2>
+            <p className="text-gray-400 text-sm line-clamp-3">{project.description}</p>
           </div>
         ))}
       </div>
 
       {/* Modal */}
-      {modalProject && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50"
-          onClick={() => setModalProject(null)}
-        >
+      {selectedProject && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          {/* Background Overlay */}
           <div
-            className="bg-gray-900 rounded-2xl p-8 max-w-lg w-full relative"
-            onClick={(e) => e.stopPropagation()}
+            className="absolute inset-0 bg-black/60 backdrop-blur-md"
+            onClick={() => setSelectedProject(null)}
+          ></div>
+
+          {/* Card Modal */}
+          <div
+            className="relative bg-gray-800 rounded-2xl p-6 w-[95%] max-w-3xl shadow-2xl z-50 
+                       max-h-[90vh] overflow-y-auto"
           >
             <button
-              className="absolute top-4 right-4 text-white text-xl font-bold"
-              onClick={() => setModalProject(null)}
+              onClick={() => setSelectedProject(null)}
+              className="absolute top-3 right-3 text-gray-400 hover:text-white text-xl"
             >
               ✕
             </button>
-            <img
-              src={modalProject.image}
-              alt={modalProject.title}
-              className="rounded-xl mb-4 w-full object-cover h-64"
-            />
-            <h2 className="text-3xl font-bold mb-2">{modalProject.title}</h2>
-            <p className="text-gray-300 mb-4">{modalProject.description}</p>
-            <div className="flex flex-wrap gap-2 mb-4">
-              {modalProject.tech.map((tech, i) => (
-                <span
-                  key={i}
-                  className="bg-gray-700 px-2 py-1 rounded-full text-sm hover:bg-blue-600 transition"
-                >
-                  {tech}
-                </span>
-              ))}
+
+            {/* Image Carousel */}
+            <div className="relative">
+              <Image
+                src={selectedProject.images[currentImage]}
+                alt={selectedProject.title}
+                width={800}
+                height={400}
+                className="rounded-lg mb-4"
+              />
+              {/* Prev & Next buttons */}
+              <button
+                onClick={handlePrevImage}
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full"
+              >
+                ◀
+              </button>
+              <button
+                onClick={handleNextImage}
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full"
+              >
+                ▶
+              </button>
             </div>
-            <a
-              href={modalProject.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-lg text-white font-medium transition"
-            >
-              Visit Project →
-            </a>
+
+            {/* Title & Description */}
+            <h2 className="text-2xl font-bold mb-3">{selectedProject.title}</h2>
+            <p className="text-gray-300 whitespace-pre-line">
+              {selectedProject.description}
+            </p>
           </div>
         </div>
       )}
