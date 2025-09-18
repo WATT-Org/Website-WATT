@@ -17,7 +17,7 @@ export default function TermsOfService() {
           {
             title: "1. Acceptance of Terms",
             content:
-              'By accessing or using QuentoAI\'s website, services, applications, and other offerings (collectively, the "Services"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not access or use the Services.',
+              "By accessing or using QuentoAI&apos;s website, services, applications, and other offerings (collectively, the &quot;Services&quot;), you agree to be bound by these Terms of Service (&quot;Terms&quot;). If you do not agree to these Terms, you may not access or use the Services.",
           },
           {
             title: "2. Changes to Terms",
@@ -38,7 +38,9 @@ export default function TermsOfService() {
                 <li>Interfere with or disrupt the Services or servers or networks connected to the Services</li>
                 <li>Attempt to gain unauthorized access to any portion of the Services</li>
                 <li>Use any robot, spider, or other automated device to access the Services</li>
-                <li>Engage in any conduct that restricts or inhibits anyone's use or enjoyment of the Services</li>
+                <li>
+                  Engage in any conduct that restricts or inhibits anyone&apos;s use or enjoyment of the Services
+                </li>
               </ul>
             ),
           },
@@ -67,7 +69,7 @@ export default function TermsOfService() {
           {
             title: "7. User Content",
             content:
-              'You retain ownership of any content you submit to the Services ("User Content"). However, by submitting User Content, you grant QuentoAI a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, adapt, publish, translate, and distribute such content in connection with providing and promoting the Services.',
+              "You retain ownership of any content you submit to the Services (&quot;User Content&quot;). However, by submitting User Content, you grant QuentoAI a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, adapt, publish, translate, and distribute such content in connection with providing and promoting the Services.",
           },
           {
             title: "8. Termination",
@@ -77,7 +79,7 @@ export default function TermsOfService() {
           {
             title: "9. Disclaimer of Warranties",
             content:
-              'THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. QUENTOAI DISCLAIMS ALL WARRANTIES, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.',
+              "THE SERVICES ARE PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. QUENTOAI DISCLAIMS ALL WARRANTIES, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.",
           },
           {
             title: "10. Limitation of Liability",
