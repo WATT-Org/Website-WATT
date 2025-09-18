@@ -1,4 +1,5 @@
 // data/projects.js
+
 const projects = [
   {
     id: 1,
@@ -11,18 +12,6 @@ const projects = [
       "/projects/drone3.jpg",
     ],
     description: `Drone Services involve the use of high-performance unmanned aerial vehicles (UAVs) ...`,
-  },
-  {
-    id: 2,
-    title: "3D Printed Prosthetic Hand",
-    category: "Hardware & 3D Printing",
-    status: "Completed",
-    images: [
-      "/projects/prosthetic1.jpg",
-      "/projects/prosthetic2.jpg",
-      "/projects/prosthetic3.jpg",
-    ],
-    description: `We offer high-quality FDM 3D printing services for prototyping ...`,
   },
    {
     id: 2,

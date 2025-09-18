@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero";
 import Link from "next/link";
 import Image from "next/image";
-import { projects } from "@/data/projects";
+import projects from "@/data/projects";
 import { gallery } from "@/data/gallery";
 import { blogs } from "@/data/blogs";
 
@@ -17,38 +17,55 @@ export default function Home() {
       <Hero />
 
       {/* Featured Projects */}
-      <section className="my-20 max-w-7xl mx-auto px-6">
-        <div className="flex justify-between items-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Featured Projects
-          </h2>
-          <Link
-            href="/projects"
-            className="text-teal-400 font-semibold hover:text-teal-500 transition"
-          >
-            Explore More →
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {projects.slice(0, 3).map((project) => (
-            <div
-              key={project.id}
-              className="bg-gray-900/80 border border-gray-800 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-teal-500/20 hover:-translate-y-1 transform transition duration-300"
-            >
-              <h3 className="text-xl font-semibold mb-3 text-white">
-                {project.title}
-              </h3>
-              <p className="text-gray-400 mb-4 text-sm">{project.description}</p>
-              <Link
-                href={`/projects/${project.id}`}
-                className="text-teal-400 hover:text-teal-500 font-medium transition"
-              >
-                View Project →
-              </Link>
-            </div>
-          ))}
-        </div>
-      </section>
+     <section className="my-20 max-w-7xl mx-auto px-6">
+  <div className="flex justify-between items-center mb-10">
+    <h2 className="text-3xl md:text-4xl font-bold text-white">
+      Featured Projects
+    </h2>
+    <Link
+      href="/projects"
+      className="text-teal-400 font-semibold hover:text-teal-500 transition"
+    >
+      Explore More →
+    </Link>
+  </div>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    {projects.slice(0, 3).map((project) => (
+      <div
+        key={project.id}
+        className="bg-gray-900/80 border border-gray-800 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-teal-500/20 hover:-translate-y-1 transform transition duration-300"
+      >
+        {/* Project Image */}
+        {project.images && project.images.length > 0 && (
+          <img
+            src={project.images[0]}
+            alt={project.title}
+            className="w-full h-48 object-cover rounded-lg mb-4"
+          />
+        )}
+
+        <h3 className="text-xl font-semibold mb-3 text-white">
+          {project.title}
+        </h3>
+
+        <p className="text-gray-400 mb-4 text-sm">
+          {project.description.length > 150
+            ? project.description.slice(0, 150) + "..."
+            : project.description}
+        </p>
+
+        <Link
+          href={`/projects/${project.id}`}
+          className="text-teal-400 hover:text-teal-500 font-medium transition"
+        >
+          View Project →
+        </Link>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* Gallery */}
       <section className="my-20 max-w-7xl mx-auto px-6">
