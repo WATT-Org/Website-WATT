@@ -85,15 +85,23 @@ export default function ProjectsPage() {
             }}
           >
             {/* Image */}
-            <div className="w-full h-56 flex items-center justify-center bg-gray-900 rounded-lg mb-4">
-              <Image
-                src={project.images[0]}
-                alt={project.title}
-                width={400}
-                height={250}
-                className="h-full object-contain"
-              />
-            </div>
+<div className="w-full h-56 flex items-center justify-center bg-gray-900 rounded-lg mb-4">
+  {project.images && project.images.length > 0 ? (
+    <Image
+      src={project.images[0]}
+      alt={project.title}
+      width={400}
+      height={250}
+      className="h-full object-contain"
+    />
+  ) : (
+    // Fallback: empty div or placeholder image
+    <div className="w-full h-full flex items-center justify-center text-gray-500">
+      No Image
+    </div>
+  )}
+</div>
+
 
             {/* Scrollable Content with custom invisible scrollbar */}
             <div className="flex flex-col overflow-y-auto max-h-40 scrollbar-thin scrollbar-thumb-transparent hover:scrollbar-thumb-teal-400">
