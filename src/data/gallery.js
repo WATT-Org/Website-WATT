@@ -4,7 +4,7 @@ const events = [
   {
     title: "Robotics Workshop at JNV",
     description:
-      "A workshop conducted for students to learn robotics and renewable energy concepts.",
+      "A workshop conducted for students to learn robotics.",
     images: [
       "/gallery/JNV/jnv1.jpg",
       "/gallery/JNV/jnv2.jpg",

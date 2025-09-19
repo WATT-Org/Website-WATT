@@ -12,14 +12,14 @@ const partners = [
 ];
 
 const services = [
-  { id: 1, name: "AI & Robotics", icon: "🤖" },
-  { id: 2, name: "Electronics", icon: "⚡" },
-  { id: 3, name: "IoT", icon: "🌐" },
-  { id: 4, name: "Hardware", icon: "🔩" },
-  { id: 5, name: "Web Development", icon: "💻" },
-  { id: 6, name: "Mobile App Development", icon: "📱" },
-  { id: 7, name: "3D Printing", icon: "🖨️" },
-  { id: 8, name: "Laser Cutting Models", icon: "🔦" },
+  { id: 1, name: "AI & Robotics", icon: "🤖", description: "Building intelligent machines and autonomous systems." },
+  { id: 2, name: "Electronics", icon: "⚡", description: "Designing and prototyping innovative circuits." },
+  { id: 3, name: "IoT", icon: "🌐", description: "Connecting devices and making life smarter." },
+  { id: 4, name: "Hardware", icon: "🔩", description: "Crafting reliable hardware solutions." },
+  { id: 5, name: "Web Development", icon: "💻", description: "Creating responsive and engaging websites." },
+  { id: 6, name: "Mobile App Development", icon: "📱", description: "Building apps that people love to use." },
+  { id: 7, name: "3D Printing", icon: "🖨️", description: "Turning ideas into tangible 3D models." },
+  { id: 8, name: "Laser Cutting Models", icon: "🔦", description: "Precision cutting for creative projects." },
 ];
 
 export default function Home() {
@@ -29,24 +29,30 @@ export default function Home() {
 
       {/* Services Section */}
       <section className="my-20 max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">
-          Our Services
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">
+          What We Offer
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+        <p className="text-gray-300 text-center max-w-2xl mx-auto mb-10">
+          We provide a wide range of services, combining technology and creativity to help bring your ideas to life.
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
           {services.map((service) => (
             <div
               key={service.id}
-              className="flex flex-col items-center justify-center p-6 bg-gray-900/80 border border-gray-800 rounded-2xl shadow-lg hover:shadow-teal-500/20 hover:-translate-y-1 transform transition duration-300"
+              className="flex flex-col items-center p-6 bg-gray-900/90 border border-gray-800 rounded-2xl shadow-md hover:shadow-teal-400/30 hover:-translate-y-1 transform transition duration-300"
             >
-              <div className="text-4xl mb-3">{service.icon}</div>
-              <h3 className="text-lg font-semibold text-white text-center">
+              <div className="text-3xl mb-3">{service.icon}</div> {/* smaller icon */}
+              <h3 className="text-lg font-semibold text-white text-center mb-1">
                 {service.name}
               </h3>
+              <p className="text-gray-400 text-sm text-center">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>
       </section>
-
+      
       {/* Featured Projects */}
       <section className="my-20 max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center mb-10">
