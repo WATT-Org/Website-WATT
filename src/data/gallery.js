@@ -1,27 +1,20 @@
-export const gallery = [
+// src/data/gallery.js
+
+const events = [
   {
-    id: 1,
-    image: "/gallery/gallery1.jpg",
-    alt: "Robotics Workshop",
+    title: "Robotics Workshop at JNV",
+    description:
+      "A workshop conducted for students to learn robotics and renewable energy concepts.",
+    images: [
+      "/gallery/JNV/jnv1.jpg",
+      "/gallery/JNV/jnv2.jpg",
+       "/gallery/JNV/jnv3.jpg",
+      "/gallery/JNV/jnv4.jpg",
+      "/gallery/JNV/jnv5.jpg",
+      
+    ],
   },
-  {
-    id: 2,
-    image: "/gallery/gallery2.jpg",
-    alt: "3D Printing Setup",
-  },
-  {
-    id: 3,
-    image: "/gallery/gallery3.jpg",
-    alt: "Smart Home Automation",
-  },
-  {
-    id: 4,
-    image: "/gallery/gallery4.jpg",
-    alt: "Team Working on AI",
-  },
-  {
-    id: 5,
-    image: "/gallery/gallery5.jpg",
-    alt: "IoT Device Setup",
-  },
+  
 ];
+
+export default events;

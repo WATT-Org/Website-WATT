@@ -2,7 +2,7 @@ import Hero from "@/components/Hero";
 import Link from "next/link";
 import Image from "next/image";
 import projects from "@/data/projects";
-import { gallery } from "@/data/gallery";
+import gallery from "@/data/gallery";
 import { blogs } from "@/data/blogs";
 
 const partners = [
@@ -11,94 +11,131 @@ const partners = [
   { id: 3, name: "Partner 3", logo: "/partner3.png" },
 ];
 
+const services = [
+  { id: 1, name: "AI & Robotics", icon: "🤖" },
+  { id: 2, name: "Electronics", icon: "⚡" },
+  { id: 3, name: "IoT", icon: "🌐" },
+  { id: 4, name: "Hardware", icon: "🔩" },
+  { id: 5, name: "Web Development", icon: "💻" },
+  { id: 6, name: "Mobile App Development", icon: "📱" },
+  { id: 7, name: "3D Printing", icon: "🖨️" },
+  { id: 8, name: "Laser Cutting Models", icon: "🔦" },
+];
+
 export default function Home() {
   return (
     <>
       <Hero />
 
+      {/* Services Section */}
+      <section className="my-20 max-w-7xl mx-auto px-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">
+          Our Services
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className="flex flex-col items-center justify-center p-6 bg-gray-900/80 border border-gray-800 rounded-2xl shadow-lg hover:shadow-teal-500/20 hover:-translate-y-1 transform transition duration-300"
+            >
+              <div className="text-4xl mb-3">{service.icon}</div>
+              <h3 className="text-lg font-semibold text-white text-center">
+                {service.name}
+              </h3>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Featured Projects */}
-     <section className="my-20 max-w-7xl mx-auto px-6">
+      <section className="my-20 max-w-7xl mx-auto px-6">
+        <div className="flex justify-between items-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
+            Featured Projects
+          </h2>
+          <Link
+            href="/projects"
+            className="text-teal-400 font-semibold hover:text-teal-500 transition"
+          >
+            Explore More →
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {projects.slice(0, 3).map((project) => (
+            <div
+              key={project.id}
+              className="bg-gray-900/80 border border-gray-800 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-teal-500/20 hover:-translate-y-1 transform transition duration-300"
+            >
+              {project.images?.[0] && (
+                <img
+                  src={project.images[0]}
+                  alt={project.title}
+                  className="w-full h-48 object-cover rounded-lg mb-4"
+                />
+              )}
+              <h3 className="text-xl font-semibold mb-3 text-white">
+                {project.title}
+              </h3>
+              <p className="text-gray-400 mb-4 text-sm">
+                {project.description.length > 150
+                  ? project.description.slice(0, 150) + "..."
+                  : project.description}
+              </p>
+              <Link
+                href={`/projects/${project.id}`}
+                className="text-teal-400 hover:text-teal-500 font-medium transition"
+              >
+                View Project →
+              </Link>
+            </div>
+          ))}
+        </div>
+      </section>
+      
+{/* Gallery */}
+<section className="my-20 max-w-7xl mx-auto px-6">
   <div className="flex justify-between items-center mb-10">
     <h2 className="text-3xl md:text-4xl font-bold text-white">
-      Featured Projects
+      Galleries
     </h2>
     <Link
-      href="/projects"
+      href="/gallery"
       className="text-teal-400 font-semibold hover:text-teal-500 transition"
     >
       Explore More →
     </Link>
   </div>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-    {projects.slice(0, 3).map((project) => (
-      <div
-        key={project.id}
-        className="bg-gray-900/80 border border-gray-800 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-teal-500/20 hover:-translate-y-1 transform transition duration-300"
-      >
-        {/* Project Image */}
-        {project.images && project.images.length > 0 && (
-          <img
-            src={project.images[0]}
-            alt={project.title}
-            className="w-full h-48 object-cover rounded-lg mb-4"
-          />
-        )}
-
-        <h3 className="text-xl font-semibold mb-3 text-white">
-          {project.title}
-        </h3>
-
-        <p className="text-gray-400 mb-4 text-sm">
-          {project.description.length > 150
-            ? project.description.slice(0, 150) + "..."
-            : project.description}
-        </p>
-
-        <Link
-          href={`/projects/${project.id}`}
-          className="text-teal-400 hover:text-teal-500 font-medium transition"
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    {gallery
+      ?.flatMap((event) =>
+        event.images.map((img) => ({ img, title: event.title }))
+      )
+      .slice(0, 3)
+      .map((item, index) => (
+        <div
+          key={index}
+          className="relative w-full h-64 rounded-2xl overflow-hidden bg-gray-900/90 border border-gray-800 shadow-lg hover:shadow-teal-500/30 transform hover:-translate-y-2 transition-all duration-500"
         >
-          View Project →
-        </Link>
-      </div>
-    ))}
+          <Image
+            src={item.img}
+            alt={item.title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-500">
+            <p className="text-white text-center font-semibold px-4">
+              {item.title}
+            </p>
+          </div>
+        </div>
+      ))}
   </div>
 </section>
 
 
-      {/* Gallery */}
-      <section className="my-20 max-w-7xl mx-auto px-6">
-        <div className="flex justify-between items-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Galleries
-          </h2>
-          <Link
-            href="/gallery"
-            className="text-teal-400 font-semibold hover:text-teal-500 transition"
-          >
-            Explore More →
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {gallery.slice(0, 3).map((item) => (
-            <div
-              key={item.id}
-              className="group relative w-full h-64 rounded-2xl overflow-hidden bg-gray-900/80 border border-gray-800 shadow-lg hover:shadow-teal-500/30 transform hover:-translate-y-1 transition duration-300"
-            >
-              <Image
-                src={item.image}
-                alt={item.alt}
-                fill
-                className="object-cover group-hover:scale-110 transition duration-500"
-              />
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                <p className="text-white font-semibold">{item.alt}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+
 
       {/* Partners */}
       <section className="my-20 max-w-7xl mx-auto px-6">
@@ -137,7 +174,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {blogs.slice(0, 3).map((blog) => (
+          {blogs?.slice(0, 3).map((blog) => (
             <div
               key={blog.id}
               className="bg-gray-900/80 border border-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-teal-500/20 hover:-translate-y-1 transform transition duration-300"
@@ -147,7 +184,7 @@ export default function Home() {
               </h3>
               <p className="text-gray-400 mb-4 text-sm">{blog.description}</p>
               <Link
-                href={`/blogs/${blog.slug}`}   //  updated to slug
+                href={`/blogs/${blog.slug}`}
                 className="text-teal-400 hover:text-teal-500 font-medium transition"
               >
                 Read More →
