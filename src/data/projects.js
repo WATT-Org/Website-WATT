@@ -134,9 +134,7 @@ This integrated system not only reduces administrative workload but also ensures
     title: "Web Application Development Service",
     category: "Web Development",
   
-    images: [
-    ,
-    ],
+    images: ["/projects/web-dev.jpg",],
     description: `We offer comprehensive web development services, including the creation of static and dynamic websites, interactive user interfaces, and powerful admin dashboards tailored to your project or business needs. Our websites are responsive, visually engaging, and optimized for performance across all devices.From simple portfolio pages and institutional websites to complex platforms with user authentication, data handling, and real-time interactions, we ensure seamless backend integration using technologies like Node.js, Express, PHP, and cloud-based databases (MongoDB, Firebase, MySQL).We also develop custom admin dashboards with data visualization, form handling, analytics, and user management modules—perfect for internal monitoring, inventory control, or educational platforms. Each project is built using modern frameworks like React, Angular, or plain HTML/CSS/JS based on the requirement.Optional features include SEO optimization, deployment support, domain setup, and ongoing maintenance.Perfect for startups, institutions, product showcases, IoT portals, and customized internal tools.`,
   },
 
