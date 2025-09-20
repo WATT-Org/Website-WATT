@@ -6,9 +6,10 @@ import gallery from "@/data/gallery";
 import { blogs } from "@/data/blogs";
 
 const partners = [
-  { id: 1, name: "Partner 1", logo: "/partner1.png" },
-  { id: 2, name: "Partner 2", logo: "/partner2.png" },
-  { id: 3, name: "Partner 3", logo: "/partner3.png" },
+  { id: 1, name: "Partner 1", logo: "/partners/SATI_Vidisha.jpg" },
+  { id: 2, name: "Partner 2", logo: "/partners/AGH.jpg" },
+  { id: 3, name: "Partner 3", logo: "/partners/Maulana_Azad_National_Institute_of_Technology.jpg" },
+  { id: 3, name: "Partner 3", logo: "/partners/CSIR.jpg" },
 ];
 
 const services = [
@@ -142,29 +143,29 @@ export default function Home() {
 
 
 
+{/* Partners */}
+<section className="my-20 max-w-7xl mx-auto px-6">
+  <h2 className="text-3xl md:text-4xl font-bold mb-10 text-white">
+    Our Partners
+  </h2>
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 justify-items-center">
+    {partners.map((p) => (
+      <div
+        key={p.id}
+        className="flex justify-center items-center p-6 bg-gray-900/80 border border-gray-800 rounded-2xl shadow hover:shadow-lg transition w-40 h-32"
+      >
+        <Image
+          src={p.logo}
+          alt={p.name}
+          width={120}
+          height={60}
+          className="object-contain"
+        />
+      </div>
+    ))}
+  </div>
+</section>
 
-      {/* Partners */}
-      <section className="my-20 max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-white">
-          Our Partners
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center">
-          {partners.map((p) => (
-            <div
-              key={p.id}
-              className="flex justify-center items-center p-6 bg-gray-900/80 border border-gray-800 rounded-2xl shadow hover:shadow-lg transition"
-            >
-              <Image
-                src={p.logo}
-                alt={p.name}
-                width={160}
-                height={80}
-                className="object-contain"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* Blogs */}
       <section className="my-20 max-w-7xl mx-auto px-6">
