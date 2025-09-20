@@ -32,7 +32,7 @@ function NextArrow({ onClick }) {
 export default function Hero() {
   const sliderRef = useRef(null);
 
-  const slides = [
+  const slides =  [
     {
       title: "Fast and Efficient Robotics & IoT Services",
       description:
