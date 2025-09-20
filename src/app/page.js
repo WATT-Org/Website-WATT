@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import projects from "@/data/projects";
 import gallery from "@/data/gallery";
-import { blogs } from "@/data/blogs";
+import  blogs from "@/data/blogs";
 
 const partners = [
   { id: 1, name: "Partner 1", logo: "/partners/SATI_Vidisha.jpg" },
@@ -167,37 +167,52 @@ export default function Home() {
 
       {/* Blogs */}
       <section className="my-20 max-w-7xl mx-auto px-6">
-        <div className="flex justify-between items-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            From the Blog
-          </h2>
+  <div className="flex justify-between items-center mb-10">
+    <h2 className="text-3xl md:text-4xl font-bold text-white">
+      From the Blog
+    </h2>
+    <Link
+      href="/blogs"
+      className="text-teal-400 font-semibold hover:text-teal-500 transition"
+    >
+      Explore More →
+    </Link>
+  </div>
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    {blogs?.slice(0, 3).map((blog) => (
+      <div
+        key={blog.id}
+        className="bg-gray-900/80 border border-gray-800 rounded-2xl shadow-lg hover:shadow-teal-500/20 hover:-translate-y-1 transform transition duration-300 flex flex-col"
+      >
+        {/* Image */}
+        <div className="w-full h-48 relative rounded-t-2xl overflow-hidden">
+          <Image
+            src={blog.image}
+            alt={blog.title}
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        {/* Text content */}
+        <div className="p-6 flex-1 flex flex-col">
+          <h3 className="text-xl font-semibold mb-3 text-white">
+            {blog.title}
+          </h3>
+          <p className="text-gray-400 mb-4 text-sm flex-1">{blog.description}</p>
           <Link
-            href="/blogs"
-            className="text-teal-400 font-semibold hover:text-teal-500 transition"
+            href={`/blogs/${blog.slug}`}
+            className="text-teal-400 hover:text-teal-500 font-medium transition mt-auto"
           >
-            Explore More →
+            Read More →
           </Link>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {blogs?.slice(0, 3).map((blog) => (
-            <div
-              key={blog.id}
-              className="bg-gray-900/80 border border-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-teal-500/20 hover:-translate-y-1 transform transition duration-300"
-            >
-              <h3 className="text-xl font-semibold mb-3 text-white">
-                {blog.title}
-              </h3>
-              <p className="text-gray-400 mb-4 text-sm">{blog.description}</p>
-              <Link
-                href={`/blogs/${blog.slug}`}
-                className="text-teal-400 hover:text-teal-500 font-medium transition"
-              >
-                Read More →
-              </Link>
-            </div>
-          ))}
-        </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
+
+
     </>
   );
 }
