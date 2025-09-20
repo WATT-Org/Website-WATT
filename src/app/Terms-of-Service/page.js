@@ -12,12 +12,11 @@ export default function TermsOfService() {
           Last updated: <span className="font-semibold text-gray-300">September 20, 2025</span>
         </p>
 
-        {/* Sections */}
-        {[
+        {[ 
           {
             title: "1. Acceptance of Terms",
             content:
-              "By accessing or using WATT's website, services, applications, and other offerings (collectively, the 'Services'), you agree to be bound by these Terms of Service ('Terms'). If you do not agree to these Terms, you may not access or use the Services.",
+              "By accessing or using WATT&apos;s website, services, applications, and other offerings (collectively, the &apos;Services&apos;), you agree to be bound by these Terms of Service (&apos;Terms&apos;). If you do not agree to these Terms, you may not access or use the Services.",
           },
           {
             title: "2. Changes to Terms",
@@ -39,7 +38,7 @@ export default function TermsOfService() {
                 <li>Attempt to gain unauthorized access to any portion of the Services</li>
                 <li>Use any robot, spider, or other automated device to access the Services</li>
                 <li>
-                  Engage in any conduct that restricts or inhibits anyone's use or enjoyment of the Services
+                  Engage in any conduct that restricts or inhibits anyone&apos;s use or enjoyment of the Services
                 </li>
               </ul>
             ),
@@ -69,7 +68,7 @@ export default function TermsOfService() {
           {
             title: "7. User Content",
             content:
-              "You retain ownership of any content you submit to the Services ('User Content'). However, by submitting User Content, you grant WATT a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, adapt, publish, translate, and distribute such content in connection with providing and promoting the Services.",
+              "You retain ownership of any content you submit to the Services (&apos;User Content&apos;). However, by submitting User Content, you grant WATT a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, adapt, publish, translate, and distribute such content in connection with providing and promoting the Services.",
           },
           {
             title: "8. Termination",
@@ -79,7 +78,7 @@ export default function TermsOfService() {
           {
             title: "9. Disclaimer of Warranties",
             content:
-              "THE SERVICES ARE PROVIDED 'AS IS' AND 'AS AVAILABLE' WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. WATT DISCLAIMS ALL WARRANTIES, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.",
+              "THE SERVICES ARE PROVIDED &apos;AS IS&apos; AND &apos;AS AVAILABLE&apos; WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. WATT DISCLAIMS ALL WARRANTIES, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.",
           },
           {
             title: "10. Limitation of Liability",
