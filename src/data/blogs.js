@@ -5,7 +5,7 @@ export const blogs = [
     description:
       "Learn how we designed and built a modular robot arm, focusing on flexibility and ease of use for a variety of applications.",
     image: "/robot-arm.jpg",
-    slug: "first-blog",   // ✅ slug add kiya
+    slug: "first-blog",   
   },
   {
     id: 2,
