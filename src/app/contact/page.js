@@ -58,7 +58,7 @@ export default function ContactPage() {
                 <div className="space-y-2">
                   <p className="font-semibold">Registered Office:</p>
                   <p>SUN ENTERPRISES</p>
-                  <p>GST Number: 09ISCPS5484N12N</p>
+                  <p>GST Number: 09ISCPS5484N1ZN</p>
                   <p>Fir. No.2, Door no.1, Industrial Estate Road, Maheshpur, Varanasi, Uttar Pradesh, 221106</p>
                   <p>(Beside Ganga Sewa Sadan Hospital)</p>
                   

@@ -85,28 +85,28 @@ export default function ProjectsPage() {
             }}
           >
             {/* Image */}
-<div className="w-full h-56 flex items-center justify-center bg-gray-900 rounded-lg mb-4">
-  {project.images && project.images.length > 0 ? (
-    <Image
-      src={project.images[0]}
-      alt={project.title}
-      width={400}
-      height={250}
-      className="h-full object-contain"
-    />
-  ) : (
-    // Fallback: empty div or placeholder image
-    <div className="w-full h-full flex items-center justify-center text-gray-500">
-      No Image
-    </div>
-  )}
-</div>
+            <div className="w-full h-56 flex items-center justify-center bg-gray-900 rounded-lg mb-4">
+              {project.images && project.images.length > 0 ? (
+                <Image
+                  src={project.images[0]}
+                  alt={project.title}
+                  width={400}
+                  height={250}
+                  className="h-full object-contain"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-gray-500">
+                  No Image
+                </div>
+              )}
+            </div>
 
-
-            {/* Scrollable Content with custom invisible scrollbar */}
+            {/* Scrollable Content */}
             <div className="flex flex-col overflow-y-auto max-h-40 scrollbar-thin scrollbar-thumb-transparent hover:scrollbar-thumb-teal-400">
               <h2 className="text-xl font-semibold mb-1">{project.title}</h2>
-              <span className="text-teal-400 text-sm mb-2">{project.category}</span>
+              <span className="text-teal-400 text-sm mb-2">
+                {project.category}
+              </span>
               <p className="text-gray-400 text-sm">{project.description}</p>
             </div>
           </div>
@@ -123,44 +123,48 @@ export default function ProjectsPage() {
           ></div>
 
           {/* Modal Box */}
-          <div className="relative bg-gray-800 rounded-2xl p-6 w-[95%] max-w-3xl shadow-2xl z-50 flex flex-col">
-            {/* Close Button */}
+          <div className="relative bg-gray-800 rounded-2xl p-6 w-[95%] max-w-3xl shadow-2xl z-50 flex flex-col overflow-hidden">
+            {/* ✅ Close Button */}
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-3 right-3 text-gray-400 hover:text-white text-xl"
+              className="absolute top-3 right-3 text-gray-400 hover:text-white text-2xl font-bold z-[60] bg-black/50 rounded-full p-1"
             >
               ✕
             </button>
 
             {/* Image Carousel */}
-            <div className="relative w-full h-96 flex items-center justify-center bg-gray-900 rounded-lg mb-6">
+            <div className="relative w-full h-96 flex items-center justify-center bg-gray-900 rounded-lg mb-6 overflow-hidden">
               <Image
                 src={selectedProject.images[currentImage]}
                 alt={selectedProject.title}
                 width={800}
                 height={400}
-                className="object-contain max-h-96"
+                className="object-contain max-h-96 relative z-10"
               />
 
               {/* Prev & Next buttons */}
               <button
                 onClick={handlePrevImage}
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/60 p-2 rounded-full"
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/60 p-2 rounded-full z-20"
               >
                 ◀
               </button>
               <button
                 onClick={handleNextImage}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/60 p-2 rounded-full"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/60 p-2 rounded-full z-20"
               >
                 ▶
               </button>
             </div>
 
-            {/* Text Section with custom scrollbar */}
+            {/* Text Section */}
             <div className="flex flex-col items-start text-left overflow-y-auto max-h-60 scrollbar-thin scrollbar-thumb-transparent hover:scrollbar-thumb-teal-400">
-              <h2 className="text-2xl font-bold mb-2">{selectedProject.title}</h2>
-              <span className="text-teal-400 text-sm mb-3">{selectedProject.category}</span>
+              <h2 className="text-2xl font-bold mb-2">
+                {selectedProject.title}
+              </h2>
+              <span className="text-teal-400 text-sm mb-3">
+                {selectedProject.category}
+              </span>
               <p className="text-gray-300 text-sm leading-relaxed whitespace-pre-line">
                 {selectedProject.description}
               </p>

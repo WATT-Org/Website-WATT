@@ -1,5 +1,5 @@
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-import Testimonial from "@/components/Testimonial"; // import testimonial component
+import Testimonial from "@/components/Testimonial"; 
 
 export default function AboutPage() {
   return (
@@ -59,7 +59,7 @@ export default function AboutPage() {
         </div>
 
         {/* Testimonials Section */}
-        <Testimonial />  {/* <-- Add your testimonial component here */}
+        {/* <Testimonial />   */}
 
       </section>
 
