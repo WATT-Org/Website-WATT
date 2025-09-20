@@ -1,15 +1,17 @@
+"use client";
+import { useState } from "react";
 import Hero from "@/components/Hero";
 import Link from "next/link";
 import Image from "next/image";
 import projects from "@/data/projects";
 import gallery from "@/data/gallery";
-import  blogs from "@/data/blogs";
+import blogs from "@/data/blogs";
 
 const partners = [
   { id: 1, name: "Partner 1", logo: "/partners/SATI_Vidisha.jpg" },
   { id: 2, name: "Partner 2", logo: "/partners/AGH.jpg" },
   { id: 3, name: "Partner 3", logo: "/partners/Maulana_Azad_National_Institute_of_Technology.jpg" },
-  { id: 3, name: "Partner 3", logo: "/partners/CSIR.jpg" },
+  { id: 4, name: "Partner 4", logo: "/partners/CSIR.jpg" },
 ];
 
 const services = [
@@ -24,6 +26,8 @@ const services = [
 ];
 
 export default function Home() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
     <>
       <Hero />
@@ -33,14 +37,13 @@ export default function Home() {
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">
           What We Offer
         </h2>
-       
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
           {services.map((service) => (
             <div
               key={service.id}
               className="flex flex-col items-center p-6 bg-gray-900/90 border border-gray-800 rounded-2xl shadow-md hover:shadow-teal-400/30 hover:-translate-y-1 transform transition duration-300"
             >
-              <div className="text-3xl mb-3">{service.icon}</div> {/* smaller icon */}
+              <div className="text-3xl mb-3">{service.icon}</div>
               <h3 className="text-lg font-semibold text-white text-center mb-1">
                 {service.name}
               </h3>
@@ -51,7 +54,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-      
+
       {/* Featured Projects */}
       <section className="my-20 max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center mb-10">
@@ -87,15 +90,50 @@ export default function Home() {
                   ? project.description.slice(0, 150) + "..."
                   : project.description}
               </p>
-              <Link
-                href={`/projects/${project.id}`}
+              <button
+                onClick={() => setSelectedProject(project)}
                 className="text-teal-400 hover:text-teal-500 font-medium transition"
               >
                 View Project →
-              </Link>
+              </button>
             </div>
           ))}
         </div>
+
+        {/* Project Modal */}
+        {selectedProject && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
+            <div className="bg-gray-900 rounded-2xl shadow-lg max-w-3xl w-full p-6 relative overflow-y-auto max-h-[90vh]">
+              <button
+                className="absolute top-4 right-4 text-white text-2xl font-bold"
+                onClick={() => setSelectedProject(null)}
+              >
+                ×
+              </button>
+
+              <h2 className="text-2xl font-bold text-white mb-4">
+                {selectedProject.title}
+              </h2>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                {selectedProject.images?.map((img, idx) => (
+                  <img
+                    key={idx}
+                    src={img}
+                    alt={`${selectedProject.title}-${idx}`}
+                    className="w-full h-48 object-cover rounded-lg"
+                  />
+                ))}
+              </div>
+
+              <p className="text-gray-300 mb-4">{selectedProject.description}</p>
+              <p className="text-teal-400 font-semibold">
+                Category: {selectedProject.category} | Status:{" "}
+                {selectedProject.status}
+              </p>
+            </div>
+          </div>
+        )}
       </section>
       
 {/* Gallery */}
