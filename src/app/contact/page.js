@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -53,12 +53,22 @@ export default function ContactPage() {
             </p>
 
             <div className="space-y-6 text-lg">
+              <div className="flex items-start gap-3">
+                <MapPin size={22} className="text-cyan-400 mt-1" />
+                <div className="space-y-2">
+                  <p className="font-semibold">Registered Office:</p>
+                  <p>SUN ENTERPRISES</p>
+                  <p>GST Number: 09ISCPS5484N12N</p>
+                  <p>Fir. No.2, Door no.1, Industrial Estate Road, Maheshpur, Varanasi, Uttar Pradesh, 221106</p>
+                  <p>(Beside Ganga Sewa Sadan Hospital)</p>
+                  
+                  <p className="mt-3 font-semibold">Operations & Dispatch Center:</p>
+                  <p>E-6/132, Arera Colony, Bhopal, Madhya Pradesh, 462016</p>
+                </div>
+              </div>
+
               <p className="flex items-center gap-3">
-                <MapPin size={22} className="text-cyan-400" />
-                E-6/132, Arera Colony, Bhopal 462016
-              </p>
-              <p className="flex items-center gap-3">
-                <Phone size={22} className="text-cyan-400" /> +91 83170-67738
+                <Phone size={22} className="text-cyan-400" /> +91 83170-67738 , +91 79050-56231
               </p>
               <p className="flex items-center gap-3">
                 <Mail size={22} className="text-cyan-400" /> wattincorporate@gmail.com
@@ -72,10 +82,7 @@ export default function ContactPage() {
                 <a href="https://facebook.com/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition">
                   <FaFacebook />
                 </a>
-                <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition">
-                  <FaTwitter />
-                </a>
-                <a href="https://www.instagram.com/watt_india?igsh=d2V2NWU2dm90Mmt2" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition">
+                <a href="https://www.instagram.com/watt_india" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition">
                   <FaInstagram />
                 </a>
                 <a href="https://www.linkedin.com/company/watt-incorporate/" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition">

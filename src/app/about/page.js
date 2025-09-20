@@ -1,10 +1,9 @@
-
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import Testimonial from "@/components/Testimonial"; // import testimonial component
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gray-950 text-white">
-      
 
       {/* About Section */}
       <section className="max-w-5xl mx-auto px-6 py-12">
@@ -40,32 +39,14 @@ export default function AboutPage() {
 
         {/* Projects Timeline */}
         <h2 className="text-3xl font-bold text-center mb-10">Our Journey & Key Projects</h2>
-        <div className="relative border-l-2 border-white pl-6 space-y-10">
+        <div className="relative border-l-2 border-white pl-6 space-y-10 mb-16">
           {[
-            {
-      title: "Smart Attendance System",
-      desc: "Automated attendance tracking for schools and offices.",
-    },
-    {
-      title: "Smart Wheel Chair & Attachments",
-      desc: "Enhancing mobility with smart, AI-powered solutions.",
-    },
-    {
-      title: "Room Automation",
-      desc: "Intelligent control of lighting, climate, and appliances.",
-    },
-    {
-      title: "Robotics & Arduino Kits",
-      desc: "Educational and functional kits for robotics projects.",
-    },
-    {
-      title: "3D Printing & Laser-Cut Models",
-      desc: "Custom prototypes, robotics parts, and gift items.",
-    },
-    {
-      title: "Pen Plotters & Signage Boards",
-      desc: "Precision plotting and custom display solutions.",
-    },
+            { title: "Smart Attendance System", desc: "Automated attendance tracking for schools and offices." },
+            { title: "Smart Wheel Chair & Attachments", desc: "Enhancing mobility with smart, AI-powered solutions." },
+            { title: "Room Automation", desc: "Intelligent control of lighting, climate, and appliances." },
+            { title: "Robotics & Arduino Kits", desc: "Educational and functional kits for robotics projects." },
+            { title: "3D Printing & Laser-Cut Models", desc: "Custom prototypes, robotics parts, and gift items." },
+            { title: "Pen Plotters & Signage Boards", desc: "Precision plotting and custom display solutions." },
           ].map((project, index) => (
             <div key={index} className="relative">
               <div className="absolute -left-4 top-2 w-3 h-3 bg-white rounded-full"></div>
@@ -76,20 +57,21 @@ export default function AboutPage() {
             </div>
           ))}
         </div>
+
+        {/* Testimonials Section */}
+        <Testimonial />  {/* <-- Add your testimonial component here */}
+
       </section>
 
       {/* Footer */}
       <footer className="bg-gray-900 mt-16 py-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center px-6">
-        
           <div className="flex gap-4 text-gray-400 text-lg">
             <a href="#"><FaFacebook /></a>
-            <a href="#"><FaTwitter /></a>
-            <a href="#"><FaInstagram /></a>
-            <a href="#"><FaLinkedin /></a>
+            <a href="https://www.instagram.com/watt_india?igsh=d2V2NWU2dm90Mmt2"><FaInstagram /></a>
+            <a href="https://www.linkedin.com/company/watt-incorporate/"><FaLinkedin /></a>
           </div>
         </div>
-        
       </footer>
     </div>
   );

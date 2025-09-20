@@ -12,7 +12,7 @@ export default function ThreeDPrintingPage() {
       <h1 className="text-3xl font-bold mb-4">3D Printing: Building Ideas, One Layer at a Time</h1>
 
       {/* Image */}
-      <div className="w-full h-64 relative mb-6 rounded-lg overflow-hidden shadow-lg">
+      <div className="w-full h-96 relative mb-6 rounded-lg overflow-hidden shadow-lg">
         <Image
           src="/blogs/3d-printing.jpg"  // Replace with your actual image path
           alt="3D Printing"

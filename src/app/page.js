@@ -33,9 +33,7 @@ export default function Home() {
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">
           What We Offer
         </h2>
-        <p className="text-gray-300 text-center max-w-2xl mx-auto mb-10">
-          We provide a wide range of services, combining technology and creativity to help bring your ideas to life.
-        </p>
+       
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
           {services.map((service) => (
             <div

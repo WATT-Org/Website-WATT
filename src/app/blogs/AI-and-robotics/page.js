@@ -12,7 +12,7 @@ export default function RobotArmPage() {
       <h1 className="text-3xl font-bold mb-4">AI and Robotics: Changing How We Live and Work</h1>
 
       {/* Image */}
-      <div className="w-full h-64 relative mb-6 rounded-lg overflow-hidden shadow-lg">
+      <div className="w-full h-118 relative mb-6 rounded-lg overflow-hidden shadow-lg">
         <Image
           src="/blogs/Ai-and-robotics.jpg" // Replace with your actual image path
           alt="AI and Robotics"

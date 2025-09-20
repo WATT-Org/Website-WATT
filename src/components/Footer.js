@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Twitter, Github } from "lucide-react";
+import { Facebook, Linkedin, Instagram } from "lucide-react"; // updated icons
 
 export default function Footer() {
   return (
     <footer className="relative mt-20">
       {/* Thin Top Border for Separation */}
-       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-green-400 to-teal-500"></div>
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-green-400 to-teal-500"></div>
 
       {/* Footer Content */}
       <div className="bg-gray-900 text-gray-300 pt-12 pb-8">
@@ -16,7 +16,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <Image
-                src="/logo.jpeg" // apna logo path
+                src="/logo.jpeg"
                 alt="Watt Incorporate Logo"
                 width={45}
                 height={45}
@@ -34,11 +34,11 @@ export default function Footer() {
               <Link href="https://facebook.com" target="_blank">
                 <Facebook className="w-6 h-6 hover:text-blue-500 transition" />
               </Link>
-              <Link href="https://twitter.com" target="_blank">
-                <Twitter className="w-6 h-6 hover:text-blue-400 transition" />
+              <Link href="https://www.linkedin.com/company/watt-incorporate/" target="_blank">
+                <Linkedin className="w-6 h-6 hover:text-blue-400 transition" />
               </Link>
-              <Link href="https://github.com" target="_blank">
-                <Github className="w-6 h-6 hover:text-gray-100 transition" />
+              <Link href="https://www.instagram.com/watt_india?igsh=d2V2NWU2dm90Mmt2" target="_blank">
+                <Instagram className="w-6 h-6 hover:text-pink-500 transition" />
               </Link>
             </div>
           </div>
