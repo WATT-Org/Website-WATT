@@ -5,24 +5,24 @@ import Link from "next/link";
 // Make sure the id matches the folder name under src/app/blog/
 const blogs = [
   {
-    id: "first-blog", 
-    title: "Building a Modular Robot Arm",
+    id: "AI-and-robotics", 
+    title: "AI and Robotics: Changing How We Live and Work",
     description:
-      "Learn how we designed and built a modular robot arm, focusing on flexibility and ease of use for a variety of applications...",
+      "Explore the world of AI and robotics in everyday life. See how smart machines help in homes, factories, hospitals, and even dangerous places, shaping the future one idea at a time...",
     image: "/robot-arm.jpg",
   },
   {
-    id: "second-blog",
-    title: "3D Printing with Recycled Materials",
+    id: "3D-printing",
+    title: "3D Printing: Building Ideas, One Layer at a Time",
     description:
-      "Explore our experiments with 3D printing using recycled materials, reducing waste and costs...",
+      "Discover how 3D printing turns simple ideas into real objects. Learn how designs are built layer by layer and explore the endless possibilities of creating functional and artistic projects...",
     image: "/3d-printing.jpg",
   },
   {
-    id: "third-blog",
-    title: "Software Development for Robotics",
+    id: "pcb-led",
+    title: "Making PCBs and LED Bulbs",
     description:
-      "Discover the software development process behind our robotics projects, including control systems and AI...",
+      "Learn how PCBs and LED bulbs are made from scratch. Understand the step-by-step process of designing circuits, soldering components, and assembling bulbs that light up your ideas...",
     image: "/robotics-software.jpg",
   },
 ];

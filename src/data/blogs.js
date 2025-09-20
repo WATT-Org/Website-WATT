@@ -1,26 +1,26 @@
-export const blogs = [
+const blogs = [
   {
-    id: 1,
-    title: "Building a Modular Robot Arm",
+    id: 1, 
+    title: "AI and Robotics: Changing How We Live and Work",
     description:
-      "Learn how we designed and built a modular robot arm, focusing on flexibility and ease of use for a variety of applications.",
+      "Explore the world of AI and robotics in everyday life. See how smart machines help in homes, factories, hospitals, and even dangerous places, shaping the future one idea at a time...",
     image: "/robot-arm.jpg",
-    slug: "first-blog",   // ✅ slug add kiya
+    slug: "AI-and-robotics",
   },
   {
     id: 2,
-    title: "3D Printing with Recycled Materials",
+    title: "3D Printing: Building Ideas, One Layer at a Time",
     description:
-      "Explore our experiments with 3D printing using recycled materials, reducing waste and costs.",
+      "Discover how 3D printing turns simple ideas into real objects. Learn how designs are built layer by layer and explore the endless possibilities of creating functional and artistic projects...",
     image: "/3d-printing.jpg",
-    slug: "second-blog",
+    slug: "3D-printing",
   },
   {
     id: 3,
-    title: "Software Development for Robotics",
+    title: "Making PCBs and LED Bulbs",
     description:
-      "Discover the software development process behind our robotics projects, including control systems and AI.",
+      "Learn how PCBs and LED bulbs are made from scratch. Understand the step-by-step process of designing circuits, soldering components, and assembling bulbs that light up your ideas...",
     image: "/robotics-software.jpg",
-    slug: "third-blog",
+    slug: "pcb-led",
   },
 ];
