@@ -134,7 +134,7 @@ export default function Home() {
             </div>
           </div>
         )}
-      </section>
+      </section>  
       
 {/* Gallery */}
 <section className="my-20 max-w-7xl mx-auto px-6">

@@ -32,22 +32,21 @@ function NextArrow({ onClick }) {
 export default function Hero() {
   const sliderRef = useRef(null);
 
-  const slides =  [
+  const slides = [
     {
       title: "Fast and Efficient Robotics & IoT Services",
       description:
         "WATT (World of Automation Technology & Trainings) is a robotics-based company using emerging technologies like IoT, AI, and Data Science to solve real-world problems and automate repetitive tasks.",
-      media: "/robot.png",
-      type: "image",
+      media: "/Home/robot.mp4",
+      type: "video",
     },
-   {
-  title: "3D Printing: Turning Ideas into Reality",
-  description:
-    "Discover how 3D printing transforms digital designs into physical objects. From rapid prototyping to functional products, explore the endless possibilities of layer-by-layer manufacturing.",
-  media: "/Home/3D-printing.mp4",
-  type: "video",
-},
-
+    {
+      title: "3D Printing: Turning Ideas into Reality",
+      description:
+        "Discover how 3D printing transforms digital designs into physical objects. From rapid prototyping to functional products, explore the endless possibilities of layer-by-layer manufacturing.",
+      media: "/Home/3D-printing.mp4",
+      type: "video",
+    },
     {
       title: "Next-Gen IT & Automation Services",
       description:
@@ -55,19 +54,20 @@ export default function Hero() {
       media: "/Home/Automation-services.mp4",
       type: "video",
     },
-   {
-  title: "Advanced Electronics Design",
-  description: "Designing and prototyping innovative circuits that power modern devices and solutions.",
-  media: "/Home/Electronic.mp4",
-  type: "video",
-},
-
-  {
-    title: "Creative Web Development",
-    description: "Building responsive, engaging websites that leave a lasting impression.",
-    media: "/Home/web-dev.mp4",
-    type: "video",
-  },
+    {
+      title: "Advanced Electronics Design",
+      description:
+        "Designing and prototyping innovative circuits that power modern devices and solutions.",
+      media: "/Home/Electronic.mp4",
+      type: "video",
+    },
+    {
+      title: "Creative Web Development",
+      description:
+        "Building responsive, engaging websites that leave a lasting impression.",
+      media: "/Home/web-dev.mp4",
+      type: "video",
+    },
   ];
 
   const settings = {
@@ -76,7 +76,7 @@ export default function Hero() {
     speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: false, // we control image/video autoplay manually
+    autoplay: false, // we control autoplay manually
     arrows: true,
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
@@ -111,8 +111,12 @@ export default function Hero() {
                 className="w-full h-full object-cover"
                 autoPlay
                 muted
-                loop //  Video will replay continuously
                 playsInline
+                onEnded={() => {
+                  if (sliderRef.current) {
+                    sliderRef.current.slickNext();
+                  }
+                }}
               />
             ) : (
               <Image
@@ -129,8 +133,12 @@ export default function Hero() {
 
             {/* Centered Content */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-              <h6 className="text-4xl md:text-6xl font-bold mb-6">{slide.title}</h6>
-              <p className="text-sm md:text-xl text-gray-200 mb-8 max-w-2xl">{slide.description}</p>
+              <h6 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+                {slide.title}
+              </h6>
+              <p className="text-sm md:text-xl text-gray-200 mb-8 max-w-2xl">
+                {slide.description}
+              </p>
               <Link
                 href="/projects"
                 className="px-8 py-4 bg-blue-600 text-white rounded-lg text-lg font-medium hover:bg-blue-700 transition"
