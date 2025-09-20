@@ -43,17 +43,48 @@ export default function Hero() {
     pauseOnHover: false,
   };
 
-  const images = ["/robot.png", "/robot.png", "/robot.png", "/robot.png", "/robot.png"];
+  const slides = [
+    {
+      title: "Fast and Efficient Robotics & IoT Services",
+      description:
+        "WATT (World of Automation Technology & Trainings) is a robotics-based company using emerging technologies like IoT, AI, and Data Science to solve real-world problems and automate repetitive tasks.",
+      img: "/robot.png",
+    },
+    {
+      title: "Smart and Effective Product Solutions",
+      description:
+        "From prototype to production, we provide innovative and reliable products that solve real-world challenges.",
+      img: "/robot.png",
+    },
+    {
+      title: "Next-Gen IT & Automation Services",
+      description:
+        "Leveraging AI, IoT, and data-driven strategies, we create intelligent systems to streamline business processes.",
+      img: "/robot.png",
+    },
+    {
+      title: "Innovative AI-Powered Robotics",
+      description:
+        "Our AI-driven robots can learn, adapt, and assist in complex tasks, making industries smarter and safer.",
+      img: "/robot.png",
+    },
+    {
+      title: "Custom Automation for Every Industry",
+      description:
+        "WATT provides tailor-made automation solutions that improve efficiency, reduce errors, and save time.",
+      img: "/robot.png",
+    },
+  ];
 
   return (
     <section className="relative w-full h-screen">
       <Slider {...settings} className="h-full">
-        {images.map((img, idx) => (
+        {slides.map((slide, idx) => (
           <div key={idx} className="relative w-full h-screen">
             {/* Fullscreen Image */}
             <Image
-              src={img}
-              alt={`Slide ${idx + 1}`}
+              src={slide.img}
+              alt={slide.title}
               fill
               className="object-cover"
               priority={idx === 0}
@@ -64,14 +95,8 @@ export default function Hero() {
 
             {/* Centered Content */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-              <h6 className="text-4xl md:text-6xl font-bold mb-6">
-                Fast and efficient robotics service
-              </h6>
-              <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl">
-                WATT (World of Automation Technology & Trainings) is a robotics-based company
-                using emerging technologies like IoT, AI, and Data Science to solve real-world
-                problems and automate repetitive tasks.
-              </p>
+              <h6 className="text-4xl md:text-6xl font-bold mb-6">{slide.title}</h6>
+              <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl">{slide.description}</p>
               <Link
                 href="/projects"
                 className="px-8 py-4 bg-blue-600 text-white rounded-lg text-lg font-medium hover:bg-blue-700 transition"
